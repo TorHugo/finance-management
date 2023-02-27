@@ -1,5 +1,6 @@
 package com.torhugo.finance_management.service.impl;
 
+import com.torhugo.finance_management.exception.impl.DataBaseException;
 import com.torhugo.finance_management.mapper.BalanceMapper;
 import com.torhugo.finance_management.model.dto.BalanceDTO;
 import com.torhugo.finance_management.model.dto.LsBalanceDTO;
@@ -36,7 +37,7 @@ public class BalanceServiceImpl implements BalanceService {
         lsBalanceDTO.getLsBalance().forEach(balance -> {
             log.info("1. Validating exists user wallet in the database.");
             BalanceCategoryModel categoryModel =
-                    categoryRepository.findById(balance.getIdCategory()).orElseThrow();
+                    categoryRepository.findById(balance.getIdCategory()).orElseThrow(() -> new DataBaseException("Entity not found!"));
 
             log.info("2. Mapping the balance.");
             BalanceModel model = balanceMapper.mapper(balance);

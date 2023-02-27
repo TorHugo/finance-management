@@ -33,8 +33,4 @@ public class UserServiceImpl implements UserService {
 
         return new UserDTO(model);
     }
-
-    public boolean validationUserExisting(Long idUser){
-        return userRepository.existsById(idUser);
-    }
 }

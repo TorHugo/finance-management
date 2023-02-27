@@ -1,5 +1,6 @@
 package com.torhugo.finance_management.service.impl;
 
+import com.torhugo.finance_management.exception.impl.DataBaseException;
 import com.torhugo.finance_management.mapper.BalanceCategoryMapper;
 import com.torhugo.finance_management.model.dto.BalanceCategoryDTO;
 import com.torhugo.finance_management.model.entity.BalanceCategoryModel;
@@ -31,7 +32,7 @@ public class BalanceCategoryServiceImpl implements BalanceCategoryService {
     public BalanceCategoryDTO savedCategory(BalanceCategoryDTO balanceCategoryDTO) throws Exception {
         log.info("1. Validation existing user in the database.");
         if (!validationExistingUser(balanceCategoryDTO.getIdUser()))
-            throw new Exception("User not found.");
+            throw new DataBaseException("User not found.");
 
         log.info("2. Mapping the category.");
         BalanceCategoryModel categoryModel = categoryMapper.mapper(balanceCategoryDTO);
