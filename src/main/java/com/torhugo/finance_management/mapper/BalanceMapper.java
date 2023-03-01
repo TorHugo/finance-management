@@ -16,6 +16,7 @@ public class BalanceMapper {
     public BalanceModel mapper (BalanceDTO balanceDTO){
         BalanceModel balanceModel = new BalanceModel();
         balanceModel.setIdBalance(balanceDTO.getIdBalance());
+        balanceModel.setIdCategory(balanceDTO.getIdCategory());
         balanceModel.setDescriptionBalance(balanceDTO.getDescriptionBalance());
         balanceModel.setBalanceValue(balanceDTO.getBalanceValue());
         balanceModel.setAdditionDate(applicationUtils.validationExistingDate(balanceDTO.getAdditionDate()));

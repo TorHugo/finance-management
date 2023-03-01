@@ -1,7 +1,7 @@
 package com.torhugo.finance_management.exception;
 
-import com.api.torhugo.exception.impl.DataBaseException;
-import com.api.torhugo.exception.impl.ResourceNotFoundException;
+import com.torhugo.finance_management.exception.impl.DataBaseException;
+import com.torhugo.finance_management.exception.impl.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

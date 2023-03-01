@@ -25,6 +25,8 @@ public class BalanceCategoryModel {
     private String descriptionCategory;
     @Column(name = "budget")
     private BigDecimal budget;
+    @Column(name = "amount_spent")
+    private BigDecimal amountSpent;
 
     @OneToMany
     private List<BalanceModel> lsBalance = new ArrayList<>();

@@ -7,6 +7,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -41,5 +42,18 @@ public class BalanceDTO {
         this.additionDate = balanceDTO.getAdditionDate();
         this.typeBalance = balanceDTO.getTypeBalance();
         this.typePayment = balanceDTO.getTypePayment();
+    }
+
+    public BalanceDTO(List<BalanceModel> lsBalance){
+
+        lsBalance.forEach(balance -> {
+            this.idBalance = balance.getIdBalance();
+            this.idCategory = balance.getIdCategory();
+            this.descriptionBalance = balance.getDescriptionBalance();
+            this.balanceValue = balance.getBalanceValue();
+            this.additionDate = balance.getAdditionDate();
+            this.typeBalance = balance.getTypeBalance();
+            this.typePayment = balance.getTypePayment();
+        });
     }
 }
